@@ -136,10 +136,10 @@ class TestNegative:
 
     def test_negstep3(self, start_time):
         res = []
-        res.append(ssh_checkout(data["ip"], data["user"], data["passwd"],
+        res.append(ssh_checkout_negative(data["ip"], data["user"], data["passwd"],
                                 "echo '{}' | sudo -S dpkg -r {}".format(data["passwd"], data["filename"]),
                                 "Удаляется"))
-        res.append(ssh_checkout(data["ip"], data["user"], data["passwd"],
+        res.append(ssh_checkout_negative(data["ip"], data["user"], data["passwd"],
                                 "echo '{}' | sudo -S dpkg -s {}".format(data["passwd"], data["filename"]),
                                 "Status: deinstall ok"))
         self.save_log(start_time, "log_deploy_negtest.txt", "test_negstep3")
